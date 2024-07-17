@@ -1,0 +1,14 @@
+printWidth: 80
+trailingComma: none
+pluginSearchDirs:
+  - /Users/samwang/node_modules/prettier-plugin-sql
+plugins:
+  - prettier-plugin-sql
+  - prettier-plugin-sh
+  - "@prettier/plugin-ruby"
+
+sql/format:
+  keywordCase: upper
+  identifierCase: lower
+  quoteIdentifiers: false
+  indentSize: 2
