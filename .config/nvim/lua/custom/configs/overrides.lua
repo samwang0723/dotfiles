@@ -82,6 +82,7 @@ M.mason = {
     -- others
     "shfmt",
   },
+  format = { timeout_ms = 10000 },
 }
 
 -- git support in nvimtree
