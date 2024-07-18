@@ -60,4 +60,8 @@ docker push samwang0723/{image-name}:latest
 
 **`*cog commit`** provides a set of predefined arguments that correspond to conventional commit types and the Angular commit convention. These arguments include **`feat`**, **`fix`**, **`style`**, **`build`**, **`refactor`**, **`ci`**, **`test`**, **`perf`**, **`chore`**, **`revert`**, and **`docs`**[2](https://docs.cocogitto.io/guide/#:~:text=cog%20commit%20allows%20you%20to,perf%2C%20chore%2C%20revert%2C%20docs).*
 
+## Diff
+
+    brew install colordiff
+    colordiff {file1} {file2}
 
