@@ -38,3 +38,8 @@ then run the curl query to your other services
 ## Shutdown
 
     kubectl scale statefulsets {{name}} --replicas=2
+
+## Fetch local IP
+
+    ifconfig | grep "inet " | grep -v  "127.0.0.1" | awk -F " " '{print $2}'|head -n1
+

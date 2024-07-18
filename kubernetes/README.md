@@ -1,6 +1,12 @@
 # Kubernetes local environment
 Use Orbstack https://orbstack.dev/ instead, better performance and resources usage compared to Docker or Rancher.
 
+## k9s
+K9s provides a terminal UI to interact with your Kubernetes clusters. The aim of this project is to make it easier to navigate, observe and manage your applications in the wild. K9s continually watches Kubernetes for changes and offers subsequent commands to interact with your observed resources. https://github.com/derailed/k9s
+
+    brew install k9s
+    k9s
+
 ## k3d/k3s Installation
 
     k3d cluster create --api-port 6550 -p "9080:80@loadbalancer"  -p "9443:443@loadbalancer" --agents 2 --k3s-arg '--disable=traefik@server:*'
@@ -56,3 +62,21 @@ You can leverage Kiali to monitor and configure your istio. Kiali is a console f
     kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.12/samples/addons/kiali.yaml
 
     istioctl dashboard kiali
+
+## Uninstall
+
+    k3d cluster delete k3s-default
+
+## Secrets
+Encode
+
+    echo "token" | base64
+
+Decode
+
+    kubectl get secret --namespace default {{name}} -o jsonpath="{.data.{{key}}}" | base64 --decode ; echo
+
+## Watch (no need if using k9s)
+
+    brew install watch
+    watch -n 1 kubectl get pods -n {namespace}

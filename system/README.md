@@ -18,3 +18,30 @@
 ## Upgrade tools
 
     xcode-select --install
+    sudo xcodebuild -license accept
+
+## GPG Keys
+
+```bash
+gpg --full-generate-key
+gpg --list-keys
+gpg --armor --export {key}
+gpgconf --kill gpg-agent
+
+gpg --list-secret-keys --keyid-format LONG
+# gpg --delete-secret-key {key}
+git config --global user.signingkey {key}
+```
+
+## SSH Keys
+
+```bash
+ssh-keygen -f .ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+ssh-rsa AAA....
+
+cat ~/.ssh/id_rsa
+# -----BEGIN RSA PRIVATE KEY-----
+# ....
+# -----END RSA PRIVATE KEY-----
+```
