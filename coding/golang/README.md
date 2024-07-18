@@ -40,6 +40,19 @@ https://github.com/grpc-ecosystem/grpc-gateway
     go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
     go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
+Copy necessary files
+
+```bash
+mkdir third_party/google/api
+
+curl https://raw.githubusercontent.com/googleapis/googleapis/master/google/api/annotations.proto > pb/google/api/annotations.proto
+curl https://raw.githubusercontent.com/googleapis/googleapis/master/google/api/http.proto > pb/google/api/http.proto
+curl https://raw.githubusercontent.com/googleapis/googleapis/master/google/api/field_behavior.proto > pb/google/api/field_behavior.proto
+curl https://raw.githubusercontent.com/googleapis/googleapis/master/google/api/httpbody.proto > pb/google/api/httpbody.proto
+
+cp -R $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway@v1.16.0/protoc-gen-swagger ./third_party
+```
+
 ## Database migration
 Prefer using sqlc for type-safe database operation handling, using Gorm also can.
 migrate with `-tz` will convert the migration file prefix with timestamp.
