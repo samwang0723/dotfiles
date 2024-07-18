@@ -27,7 +27,7 @@ openapi-generator generate -i jarvis-api.yaml --additional-properties allowUnico
 # React / Redux
 # It used to be very complicated with action, reducer, store management but now can achieve easily with slides
 
-# Use RTK api generator
+# Preferred - Use RTK api generator
 npm i @rtk-query/codegen-openapi
 npm install --save-dev esbuild-runner
 npx @rtk-query/codegen-openapi openapi-config.ts
