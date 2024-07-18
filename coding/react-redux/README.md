@@ -64,4 +64,5 @@ function MyComponent() {
 // https://www.npmjs.com/package/tailwind-datepicker-react
 ```
 
+![Screenshot 2023-12-07 at 10 13 45 AM](https://github.com/user-attachments/assets/f7ff28db-42eb-4c35-b77d-55bedf219734)
 
