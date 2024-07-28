@@ -4,6 +4,10 @@ local options = {
 	-- Plugin configuration
 	tools = {},
 	server = {
+		on_attach = function(client, buffer)
+			require("core.utils").load_mappings("lspconfig", { buffer = buffer })
+			require("nvchad.signature").setup(client)
+		end,
 		-- on_attach = on_attach,
 		-- capabilities = capabilities,
 		settings = {

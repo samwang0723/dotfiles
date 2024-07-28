@@ -304,6 +304,7 @@ local plugins = {
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"fredrikaverpil/neotest-golang", -- Installation
+			"mrcjkb/rustaceanvim",
 		},
 		init = function()
 			require("core.utils").load_mappings("neotest")
