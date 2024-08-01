@@ -3,6 +3,7 @@ vim.opt.colorcolumn = "80"
 
 -- Disable persistent undo for files in /private directory
 vim.api.nvim_create_autocmd("BufReadPre", { pattern = "/private/*", command = "set noundofile" })
+vim.lsp.inlay_hint.enable(false)
 
 -- Enable persistent undo for other files
 vim.opt.undofile = true
@@ -13,7 +14,7 @@ vim.opt.clipboard = ""
 vim.api.nvim_set_keymap("n", "y", '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "y", '"+y', { noremap = true, silent = true })
 
-vim.cmd [[
+vim.cmd([[
 nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 function! AutoHighlightToggle()
     let @/ = ''
@@ -33,4 +34,4 @@ function! AutoHighlightToggle()
         return 1
     endif
 endfunction
-]]
+]])
