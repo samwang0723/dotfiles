@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local overrides = require("custom.configs.overrides")
+require("core.utils").load_mappings("inlay")
 
 local plugins = {
 	"NvChad/nvcommunity",

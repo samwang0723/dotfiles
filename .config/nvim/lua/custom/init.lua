@@ -3,7 +3,7 @@ vim.opt.colorcolumn = "80"
 
 -- Disable persistent undo for files in /private directory
 vim.api.nvim_create_autocmd("BufReadPre", { pattern = "/private/*", command = "set noundofile" })
-vim.lsp.inlay_hint.enable(false)
+-- vim.lsp.inlay_hint.enable(true)
 
 -- Enable persistent undo for other files
 vim.opt.undofile = true
