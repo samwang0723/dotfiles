@@ -56,6 +56,7 @@ M.mason = {
     "deno",
     "prettier",
     "eslint_d",
+    "tailwindcss-language-server",
 
     -- c/cpp stuff
     "clangd",

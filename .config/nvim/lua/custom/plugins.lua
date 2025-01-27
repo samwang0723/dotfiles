@@ -88,7 +88,21 @@ local plugins = {
       require("core.utils").load_mappings("outlines")
     end,
   },
-
+  -- React configurations
+  {
+    "windwp/nvim-ts-autotag",
+    init = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+  {
+    "windwp/nvim-autopairs",
+    init = function()
+      require("nvim-autopairs").setup({
+        disable_filetype = { "TelescopePrompt", "vim" },
+      })
+    end,
+  },
   -- Rust configurations
   {
     "mrcjkb/rustaceanvim",

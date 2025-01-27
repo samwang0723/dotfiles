@@ -69,6 +69,8 @@ lspconfig.ts_ls.setup({
   },
 })
 
+lspconfig.tailwindcss.setup({})
+
 -- HTML/CSS LSP
 -- npm i -g vscode-langservers-extracted
 lspconfig.html.setup({

@@ -83,7 +83,6 @@ local opts = {
     diagnostics.eslint_d.with({
       diagnostics_format = "[eslint] #{m}\n(#{c})",
     }),
-    code_actions.eslint_d.with(eslint_config),
     diagnostics.mypy,
     diagnostics.ruff,
   },
