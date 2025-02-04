@@ -29,7 +29,7 @@ local eslint_config = {
 }
 
 local opts = {
-  debug = false,
+  debug = true,
   sources = {
     -- Rubocop
     conditional(function(utils)
@@ -81,9 +81,9 @@ local opts = {
       to_stdin = true,
     }),
     formatting.eslint_d.with(eslint_config),
-    diagnostics.eslint_d.with({
+    diagnostics.eslint_d.with(vim.tbl_extend("force", eslint_config, {
       diagnostics_format = "[eslint] #{m}\n(#{c})",
-    }),
+    })),
     diagnostics.mypy,
     diagnostics.ruff,
   },
