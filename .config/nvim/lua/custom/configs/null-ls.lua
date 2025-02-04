@@ -23,6 +23,7 @@ local eslint_config = {
       ".eslintrc.yaml",
       ".eslintrc.yml",
       ".eslintrc.json",
+      "eslint.config.js",
     })
   end,
 }
