@@ -34,10 +34,15 @@ local plugins = {
     lazy = false,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     opts = function()
       return require("custom.configs.null-ls")
     end,
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+      "nvim-lua/plenary.nvim",
+      "jose-elias-alvarez/null-ls.nvim",
+    },
     lazy = false,
   },
   {
@@ -61,7 +66,12 @@ local plugins = {
       return M
     end,
   },
-  { "j-hui/fidget.nvim",      tag = "legacy" },
+  {
+    "j-hui/fidget.nvim",
+    opts = {
+      -- options
+    },
+  },
   {
     "simrat39/symbols-outline.nvim",
     init = function()
@@ -193,8 +203,13 @@ local plugins = {
     end,
     lazy = false,
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown", "codecompanion" },
+  },
 
   -- ChatGPT / AI
+  { "github/copilot.vim" },
   {
     "zbirenbaum/copilot.lua",
     event = "InsertEnter",
@@ -239,6 +254,7 @@ local plugins = {
   {
     "olimorris/codecompanion.nvim",
     init = function()
+      require("custom.configs.fidget-spinner"):init()
       require("custom.configs.codecompanion")
       require("core.utils").load_mappings("codecompanions")
     end,

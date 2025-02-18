@@ -152,10 +152,6 @@ M.inlay = {
 M.codecompanions = {
   plugin = true,
   n = {
-    ["ga"] = {
-      "<cmd>CodeCompanionChat Add<CR>",
-      "CodeCompanionChat Add",
-    },
     ["<leader>ct"] = {
       "<cmd>CodeCompanionChat Toggle<CR>",
       "CodeCompanion Chat",

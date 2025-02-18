@@ -38,3 +38,7 @@ endfunction
 
 -- Expand 'cc' into 'CodeCompanion' in the command line
 vim.cmd([[cab cc CodeCompanion]])
+-- If set to not nil, This automatically approves any tool use instead of
+-- prompting the user, disables any diffs, and automatically saves any buffers
+-- that the agent has edited.
+vim.g.codecompanion_auto_tool_mode = nil
