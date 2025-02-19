@@ -28,7 +28,7 @@ local plugins = {
 			-- OPTIONAL:
 			--   `nvim-notify` is only needed, if you want to use the notification view.
 			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
+			-- "rcarriga/nvim-notify",
 		},
 	},
 	-- LSP configurations
@@ -254,16 +254,19 @@ local plugins = {
 				end,
 			},
 		},
-		opts = {
-			sources = {
+		opts = function()
+			local M = require("plugins.configs.cmp")
+			M.sources = {
 				{ name = "nvim_lsp", group_index = 2 },
-				{ name = "copilot", group_index = 1 },
+				{ name = "copilot", group_index = 2 },
 				{ name = "luasnip", group_index = 2 },
 				{ name = "buffer", group_index = 2 },
 				{ name = "nvim_lua", group_index = 2 },
 				{ name = "path", group_index = 2 },
-			},
-		},
+				{ name = "crates", group_index = 2 },
+			}
+			return M
+		end,
 	},
 	-- AI agent
 	{
@@ -289,8 +292,8 @@ local plugins = {
 		opts = {
 			-- add any opts here
 			-- for example "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot"
-			provider = "claude",
-			auto_suggestions_provider = "claude",
+			provider = "copilot",
+			auto_suggestions_provider = "copilot",
 			claude = {
 				endpoint = "https://api.anthropic.com",
 				model = "claude-3-5-sonnet-latest",
@@ -304,6 +307,9 @@ local plugins = {
 				temperature = 0, -- adjust if needed
 				max_tokens = 4096,
 				reasoning_effort = "high", -- only supported for "o" models
+			},
+			behaviour = {
+				auto_apply_diff_after_generation = true,
 			},
 			---Specify the special dual_boost mode
 			---1. enabled: Whether to enable dual_boost mode. Default to false.
