@@ -42,3 +42,6 @@ vim.cmd([[cab cc CodeCompanion]])
 -- prompting the user, disables any diffs, and automatically saves any buffers
 -- that the agent has edited.
 vim.g.codecompanion_auto_tool_mode = nil
+
+-- avante.nvim configuration
+vim.opt.laststatus = 3
