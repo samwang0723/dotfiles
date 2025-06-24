@@ -24,7 +24,7 @@ prettier.setup {
   bin = "prettier",
   --args = { "--config", vim.env.HOME .. "/.prettierrc.yml", "-" },
   --to_stdin = true,
-  ["null-ls"] = {
+  ["none-ls"] = {
     condition = function()
       return prettier.config_exists {
         -- if `false`, skips checking `package.json` for `"prettier"` key

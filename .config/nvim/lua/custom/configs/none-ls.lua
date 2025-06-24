@@ -1,4 +1,4 @@
-local null_ls = require("none-ls")
+local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
 local event = "BufWritePre" -- or "BufWritePost"
@@ -8,7 +8,7 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 local conditional = function(fn)
-  local utils = require("none-ls.utils").make_conditional_utils()
+  local utils = require("null-ls.utils").make_conditional_utils()
   return fn(utils)
 end
 
@@ -79,12 +79,14 @@ local opts = {
       args = { "--config", vim.env.HOME .. "/.prettierrc.yml", "-" },
       to_stdin = true,
     }),
-    formatting.eslint_d.with(eslint_config),
-    diagnostics.eslint_d.with(vim.tbl_extend("force", eslint_config, {
+    -- ESLint from none-ls-extras
+    require("none-ls.formatting.eslint_d").with(eslint_config),
+    require("none-ls.diagnostics.eslint_d").with(vim.tbl_extend("force", eslint_config, {
       diagnostics_format = "[eslint] #{m}\n(#{c})",
     })),
     diagnostics.mypy,
-    diagnostics.ruff,
+    -- Ruff from none-ls-extras
+    require("none-ls.diagnostics.ruff"),
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
